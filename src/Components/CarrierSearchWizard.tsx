@@ -5,16 +5,19 @@ import { NavigationButtons } from "./NavigationButtons";
 import { WizardContent } from "./WizardContent";
 import { useSearchParams } from "react-router-dom";
 import { useCriteria } from "../hooks/useCriteria";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCarrier } from "../hooks/useCarrier";
 
 export function CarrierSearchWizard() {
+  const [isFormDataValid, setFormDataValid] = useState<boolean>(false);
+  const [formData, setFormData] = useState<Record<string, string>>({});
   const [params, setParams] = useSearchParams();
   const activeStepFromUrl = parseInt(params.get("step") || "0", 10);
   const { activeStep, goToNext, goToPrevious } = useSteps({
     index: activeStepFromUrl,
     count: steps.length,
   });
+  console.log("FormData", formData);
 
   useEffect(() => {
     //To update the step value to the URL
@@ -36,6 +39,9 @@ export function CarrierSearchWizard() {
     if (activeStep === 1) {
       return !selectedCarrierData;
     }
+    if (activeStep === 2) {
+      return !isFormDataValid;
+    }
     return false;
   };
 
@@ -45,6 +51,11 @@ export function CarrierSearchWizard() {
     } else {
       goToNext();
     }
+  };
+
+  const handleSetFormData = (formData: Record<string, string>) => {
+    setFormDataValid(true);
+    setFormData(formData);
   };
 
   return (
@@ -59,6 +70,7 @@ export function CarrierSearchWizard() {
         handleCriteriaChange={handleCriteriaChange}
         hasCriteriaSelected={hasCriteriaSelected}
         onModifyCriteriaClick={goToPrevious}
+        handleSetFormData={handleSetFormData}
       />
       <NavigationButtons
         activeStep={activeStep}

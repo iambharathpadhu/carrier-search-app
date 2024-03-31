@@ -1,10 +1,12 @@
 import { Box } from "@chakra-ui/react";
 import { CriteriaSelection, CriteriaSelectionProps } from "./CriteriaSelection";
 import { CarrierSelection, CarrierSelectionProps } from "./CarrierSelection";
+import { ConfirmBooking, ConfirmBookingProps } from "./ConfirmBooking";
 
 export interface WizardContentProps
   extends CriteriaSelectionProps,
-    CarrierSelectionProps {
+    CarrierSelectionProps,
+    ConfirmBookingProps {
   activeStep: number;
 }
 
@@ -18,6 +20,7 @@ export function WizardContent(props: WizardContentProps) {
     onCarrierSelect,
     onModifyCriteriaClick,
     selectedCarrier,
+    handleSetFormData,
   } = props;
   return (
     <Box border="1px solid black" width="100%" height="80vh" overflowY="auto">
@@ -37,7 +40,12 @@ export function WizardContent(props: WizardContentProps) {
           onCarrierSelect={onCarrierSelect}
         />
       )}
-      {activeStep === 2 && <p>Content</p>}
+      {activeStep === 2 && (
+        <ConfirmBooking
+          selectedCarrier={selectedCarrier}
+          handleSetFormData={handleSetFormData}
+        />
+      )}
       {activeStep === 3 && <p>Content</p>}
     </Box>
   );
