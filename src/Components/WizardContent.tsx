@@ -2,11 +2,16 @@ import { Box } from "@chakra-ui/react";
 import { CriteriaSelection, CriteriaSelectionProps } from "./CriteriaSelection";
 import { CarrierSelection, CarrierSelectionProps } from "./CarrierSelection";
 import { ConfirmBooking, ConfirmBookingProps } from "./ConfirmBooking";
+import {
+  BookingConfirmation,
+  BookingConfirmationProps,
+} from "./BookingConfirmation";
 
 export interface WizardContentProps
   extends CriteriaSelectionProps,
     CarrierSelectionProps,
-    ConfirmBookingProps {
+    ConfirmBookingProps,
+    BookingConfirmationProps {
   activeStep: number;
 }
 
@@ -21,6 +26,9 @@ export function WizardContent(props: WizardContentProps) {
     onModifyCriteriaClick,
     selectedCarrier,
     handleSetFormData,
+    onBookAnotherOrderClick,
+    carrierData,
+    userData,
   } = props;
   return (
     <Box border="1px solid black" width="100%" height="80vh" overflowY="auto">
@@ -46,7 +54,13 @@ export function WizardContent(props: WizardContentProps) {
           handleSetFormData={handleSetFormData}
         />
       )}
-      {activeStep === 3 && <p>Content</p>}
+      {activeStep === 3 && (
+        <BookingConfirmation
+          userData={userData}
+          carrierData={carrierData}
+          onBookAnotherOrderClick={onBookAnotherOrderClick}
+        />
+      )}
     </Box>
   );
 }

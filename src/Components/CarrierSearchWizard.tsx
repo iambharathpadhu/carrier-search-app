@@ -14,12 +14,12 @@ export function CarrierSearchWizard() {
   const [isFormDataValid, setFormDataValid] = useState<boolean>(false);
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [params, setParams] = useSearchParams();
+  const userData = params.get("userData") || "";
   const activeStepFromUrl = parseInt(params.get("step") || "0", 10);
   const { activeStep, goToNext, goToPrevious, setActiveStep } = useSteps({
     index: activeStepFromUrl,
     count: steps.length,
   });
-  console.log("FormData", formData);
 
   useEffect(() => {
     //To update the step value to the URL
@@ -83,6 +83,17 @@ export function CarrierSearchWizard() {
     setFormData(formData);
   };
 
+  const handleBookAnotherOrderClick = () => {
+    setActiveStep(0);
+    const updatedParams = new URLSearchParams(params);
+    updatedParams.delete("userData");
+    updatedParams.delete("selectedCarrierData");
+    Object.keys(criteria).forEach((key) => {
+      updatedParams.delete(key);
+    });
+    setParams(updatedParams);
+  };
+
   return (
     <VStack justifyContent="space-between" gap="20px" margin="0 auto">
       <CarrierStepper steps={steps} activeStep={activeStep} />
@@ -96,6 +107,9 @@ export function CarrierSearchWizard() {
         hasCriteriaSelected={hasCriteriaSelected}
         onModifyCriteriaClick={goToPrevious}
         handleSetFormData={handleSetFormData}
+        userData={userData}
+        carrierData={selectedCarrierData}
+        onBookAnotherOrderClick={handleBookAnotherOrderClick}
       />
       <NavigationButtons
         activeStep={activeStep}
