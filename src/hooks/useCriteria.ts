@@ -22,6 +22,9 @@ export function useCriteria() {
     Object.keys(criteria).forEach((key) => {
       updatedParams.delete(key);
     });
+    if (params.get("selectedCarrierData")) {
+      updatedParams.delete("selectedCarrierData");
+    }
     setParams(updatedParams);
   };
 

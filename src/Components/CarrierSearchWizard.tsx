@@ -6,6 +6,7 @@ import { WizardContent } from "./WizardContent";
 import { useSearchParams } from "react-router-dom";
 import { useCriteria } from "../hooks/useCriteria";
 import { useEffect } from "react";
+import { useCarrier } from "../hooks/useCarrier";
 
 export function CarrierSearchWizard() {
   const [params, setParams] = useSearchParams();
@@ -22,12 +23,21 @@ export function CarrierSearchWizard() {
     setParams(updatedParams);
   }, [activeStep, params, setParams]);
 
-  const getIsNextDisabled = () => {
-    return false;
-  };
-
   const { criteria, handleCriteriaChange, hasCriteriaSelected, resetCriteria } =
     useCriteria();
+
+  const { selectedCarrier, handleCarrierSelect, selectedCarrierData } =
+    useCarrier();
+
+  const getIsNextDisabled = () => {
+    if (activeStep === 0) {
+      return !Object.values(criteria).some((value) => value);
+    }
+    if (activeStep === 1) {
+      return !selectedCarrierData;
+    }
+    return false;
+  };
 
   const handleNextButtonClick = () => {
     if (activeStep === steps.length - 1) {
@@ -39,13 +49,16 @@ export function CarrierSearchWizard() {
 
   return (
     <VStack justifyContent="space-between" gap="20px" margin="0 auto">
-      <CarrierStepper steps={steps} activeStep={0} />
+      <CarrierStepper steps={steps} activeStep={activeStep} />
       <WizardContent
-        activeStep={activeStep}
         criteria={criteria}
+        activeStep={activeStep}
+        selectedCarrier={selectedCarrier}
+        onCarrierSelect={handleCarrierSelect}
         resetCriteria={resetCriteria}
         handleCriteriaChange={handleCriteriaChange}
         hasCriteriaSelected={hasCriteriaSelected}
+        onModifyCriteriaClick={goToPrevious}
       />
       <NavigationButtons
         activeStep={activeStep}
