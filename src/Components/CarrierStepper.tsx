@@ -23,13 +23,9 @@ export interface CarrierStepperProps {
 export function CarrierStepper(props: CarrierStepperProps) {
   const { steps, activeStep } = props;
   return (
-    <Box
-      style={{
-        width: "100%",
-      }}
-    >
+    <Box width="100%" overflowX="auto" whiteSpace="nowrap">
       <Stepper
-        size="lg"
+        size={{ base: "sm", md: "lg" }}
         index={activeStep}
         colorScheme={activeStep === 3 ? "green" : "blue"}
       >
