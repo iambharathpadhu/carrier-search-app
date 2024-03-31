@@ -4,6 +4,7 @@ import { CarrierCard } from "./CarrierCard";
 import { Button, Image, Spinner, Tag, Text } from "@chakra-ui/react";
 import { CarrierData, CarriersResponse, Criteria } from "../types";
 import { getFilteredCarriers, getSelectedCriteria } from "../utils";
+import { motion } from "framer-motion";
 
 export interface CarrierSelectionProps {
   criteria: Criteria;
@@ -54,17 +55,24 @@ export function CarrierSelection(props: CarrierSelectionProps) {
       </Box>
       {loading && <Spinner size="xl" />}
       <SimpleGrid columns={{ base: 1, md: 3 }} width="100%" spacing={6}>
-        {filteredCarriers.map((carrier) => (
-          <CarrierCard
+        {filteredCarriers.map((carrier, index) => (
+          <motion.div
             key={carrier.name}
-            name={carrier.name}
-            rating={carrier.rating}
-            available={carrier.availability}
-            onTimeDelivery={carrier.onTimeDeliveryPercentage * 100}
-            isSelected={selectedCarrier.name === carrier.name}
-            onCarrierSelect={handleCarrierSelect}
-            bestMatch={carrier.isBestMatch}
-          />
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+          >
+            <CarrierCard
+              key={carrier.name}
+              name={carrier.name}
+              rating={carrier.rating}
+              available={carrier.availability}
+              onTimeDelivery={carrier.onTimeDeliveryPercentage * 100}
+              isSelected={selectedCarrier.name === carrier.name}
+              onCarrierSelect={handleCarrierSelect}
+              bestMatch={carrier.isBestMatch}
+            />
+          </motion.div>
         ))}
       </SimpleGrid>
       {filteredCarriers.length === 0 && !loading && (
