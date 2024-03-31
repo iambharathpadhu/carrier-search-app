@@ -10,7 +10,7 @@ export const steps = [
 export const ratingItems = [4, 3, 2, 1].map((rating) => ({
   id: rating.toString(),
   itemContent: (
-    <Box display="flex" alignItems="center">
+    <Box display="flex" alignItems="center" gap="4px">
       <StarRating filled={rating} />
       <Text fontSize="sm">& up</Text>
     </Box>
