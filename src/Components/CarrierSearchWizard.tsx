@@ -1,8 +1,9 @@
-import { Box, VStack, useSteps } from "@chakra-ui/react";
+import { VStack, useSteps } from "@chakra-ui/react";
 import { CarrierStepper } from "./CarrierStepper";
 import { steps } from "../utils/data";
 import { NavigationButtons } from "./NavigationButtons";
 import { useGetURLParams } from "../hooks/useGetURLParams";
+import { WizardContent } from "./WizardContent";
 
 export function CarrierSearchWizard() {
   const { activeStepFromUrl } = useGetURLParams();
@@ -24,9 +25,7 @@ export function CarrierSearchWizard() {
   return (
     <VStack justifyContent="space-between" gap="20px" margin="0 auto">
       <CarrierStepper steps={steps} activeStep={0} />
-      <Box border="1px solid black" width="100%" height="80vh" overflowY="auto">
-        Content
-      </Box>
+      <WizardContent activeStep={activeStep} />
       <NavigationButtons
         activeStep={activeStep}
         stepsLength={steps.length}
