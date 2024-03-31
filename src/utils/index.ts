@@ -81,16 +81,4 @@ export function getSelectedCriteria(criteria: Criteria) {
     });
 }
 
-export function getBestMatchingCarrier(filteredCarriers: CarrierData[]) {
-  return filteredCarriers.reduce(
-    (acc, curr) => {
-      if (curr.rating > acc.rating) {
-        return curr;
-      }
-      return acc;
-    },
-    { rating: 0, name: "" }
-  );
-}
-
 export const getRandomNumber = () => Math.random();
