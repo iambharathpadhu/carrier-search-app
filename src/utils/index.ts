@@ -86,3 +86,5 @@ export function getBestMatchingCarrier(filteredCarriers: CarrierData[]) {
     { rating: 0, name: "" }
   );
 }
+
+export const getRandomNumber = () => Math.random();

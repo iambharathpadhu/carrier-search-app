@@ -1,4 +1,4 @@
-import { VStack, useSteps } from "@chakra-ui/react";
+import { VStack, useSteps, useToast } from "@chakra-ui/react";
 import { CarrierStepper } from "./CarrierStepper";
 import { steps } from "../utils/data";
 import { NavigationButtons } from "./NavigationButtons";
@@ -7,13 +7,15 @@ import { useSearchParams } from "react-router-dom";
 import { useCriteria } from "../hooks/useCriteria";
 import { useEffect, useState } from "react";
 import { useCarrier } from "../hooks/useCarrier";
+import { getRandomNumber } from "../utils";
 
 export function CarrierSearchWizard() {
+  const toast = useToast();
   const [isFormDataValid, setFormDataValid] = useState<boolean>(false);
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [params, setParams] = useSearchParams();
   const activeStepFromUrl = parseInt(params.get("step") || "0", 10);
-  const { activeStep, goToNext, goToPrevious } = useSteps({
+  const { activeStep, goToNext, goToPrevious, setActiveStep } = useSteps({
     index: activeStepFromUrl,
     count: steps.length,
   });
@@ -45,8 +47,31 @@ export function CarrierSearchWizard() {
     return false;
   };
 
+  const handleCompleteClick = () => {
+    if (getRandomNumber() < 0.5) {
+      //This is to fake error state and display toast !
+      toast({
+        title: "Error",
+        description:
+          "An error occurred while processing your request.Please try again!",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom-left",
+      });
+    } else {
+      const updatedParams = new URLSearchParams(params);
+      updatedParams.set("userData", JSON.stringify(formData));
+      setParams(updatedParams);
+      setFormDataValid(false);
+      setFormData({});
+      setActiveStep(3);
+    }
+  };
+
   const handleNextButtonClick = () => {
     if (activeStep === steps.length - 1) {
+      handleCompleteClick();
       return;
     } else {
       goToNext();
