@@ -8,6 +8,7 @@ import {
   SliderThumb,
   SliderTrack,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
 export interface SliderCriteriaComponentProps {
@@ -32,10 +33,13 @@ export function SliderCriteriaComponent(props: SliderCriteriaComponentProps) {
     criteriaName,
     handleCriteriaChange,
   } = props;
+  const shouldTruncate = useBreakpointValue({ base: true, md: false });
   return (
     <>
       <Box display="flex" alignItems="center" gap="8px" height="32px">
-        <Text fontWeight="700">{title}</Text>
+        <Text fontWeight="700" isTruncated={shouldTruncate}>
+          {title}
+        </Text>
         {value !== 0 && (
           <CloseButton onClick={() => handleCriteriaChange(criteriaName, 0)} />
         )}

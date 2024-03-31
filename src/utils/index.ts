@@ -4,6 +4,12 @@ export function getFilteredCarriers(
   carriers: CarrierData[],
   criteria: Criteria
 ) {
+  carriers.sort((a, b) => b.rating - a.rating);
+
+  if (carriers.length > 0) {
+    carriers[0].isBestMatch = true;
+  }
+
   return carriers.filter((carrier: CarrierData) => {
     const {
       ratingValue,

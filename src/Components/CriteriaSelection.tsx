@@ -1,4 +1,4 @@
-import { Box, Button, Heading, VStack } from "@chakra-ui/react";
+import { Box, Button, Heading, VStack, Text } from "@chakra-ui/react";
 import { RadioCriteriaComponent } from "./RadioCriteriaComponent";
 import { Criteria } from "../types";
 import {
@@ -23,24 +23,27 @@ export function CriteriaSelection(props: CriteriaSelectionProps) {
       <Heading as="h4" display="flex" marginBottom="24px">
         Select a Criteria
       </Heading>
+      <Text textAlign="left" fontWeight="800">
+        Select one or more criteria to filter the Carriers
+      </Text>
       <VStack alignItems="flex-start" gap="16px">
         <RadioCriteriaComponent
           items={ratingItems}
-          title="Select a rating"
+          title="Rating"
           value={criteria.ratingValue}
           handleCriteriaChange={handleCriteriaChange}
           criteriaName="ratingValue"
         />
         <RadioCriteriaComponent
           items={priceItems}
-          title="Select a Price Range option"
+          title="Price Range option"
           value={criteria.priceValue}
           handleCriteriaChange={handleCriteriaChange}
           criteriaName="priceValue"
         />
         <RadioCriteriaComponent
           items={specialRequirementsItems}
-          title="Select a Special Requirement"
+          title="Special Requirement"
           value={criteria.specialRequirementsValue}
           handleCriteriaChange={handleCriteriaChange}
           criteriaName="specialRequirementsValue"
@@ -53,7 +56,7 @@ export function CriteriaSelection(props: CriteriaSelectionProps) {
           value={criteria.onTimeDeliveryValue}
           stepValue={10}
           defaultValue={0}
-          title="Select a On Time Delivery Percentage"
+          title="On Time Delivery Percentage"
         />
         {hasCriteriaSelected && (
           <Button onClick={resetCriteria}>Clear All</Button>

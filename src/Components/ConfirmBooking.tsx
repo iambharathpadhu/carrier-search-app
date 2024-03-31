@@ -1,7 +1,8 @@
-import { HStack } from "@chakra-ui/layout";
+import { VStack, HStack } from "@chakra-ui/layout";
 import { CarrierData } from "../types";
 import { DetailsForm } from "./DetailsForm";
 import { OrderSummary } from "./OrderSummary";
+import { useBreakpointValue } from "@chakra-ui/react";
 
 export interface ConfirmBookingProps {
   selectedCarrier: CarrierData;
@@ -11,14 +12,32 @@ export interface ConfirmBookingProps {
 export function ConfirmBooking(props: ConfirmBookingProps) {
   const { selectedCarrier, handleSetFormData } = props;
 
+  const direction = useBreakpointValue({ base: "column", md: "row" }) as
+    | "column"
+    | "row"
+    | undefined;
+
   return (
-    <HStack align="start" spacing={4} display="flex" width="100%">
-      <HStack width="60%" padding="32px" borderRight="1px solid #d9d9d9">
+    <VStack
+      align="start"
+      spacing={4}
+      width="100%"
+      flexDirection={direction ? direction : "column"}
+    >
+      <HStack
+        width={direction === "row" ? "60%" : "100%"}
+        padding="32px"
+        borderRight={direction === "row" ? "1px solid #d9d9d9" : "none"}
+      >
         <DetailsForm handleSetFormData={handleSetFormData} />
       </HStack>
-      <HStack width="40%" alignItems="flex-start" padding="32px">
+      <HStack
+        width={direction === "row" ? "40%" : "100%"}
+        padding="32px"
+        borderTop={direction === "column" ? "1px solid #d9d9d9" : "none"}
+      >
         <OrderSummary selectedCarrier={selectedCarrier} />
       </HStack>
-    </HStack>
+    </VStack>
   );
 }

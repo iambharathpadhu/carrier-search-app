@@ -9,6 +9,7 @@ export interface CarrierData {
   name: string;
   rating: number;
   cost: number;
+  isBestMatch?: boolean;
   availability: boolean;
   specialRequirements: string[];
   onTimeDeliveryPercentage: number;

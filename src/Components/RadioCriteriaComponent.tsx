@@ -5,8 +5,8 @@ import {
   VStack,
   Text,
   CloseButton,
-  HStack,
   Box,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
 export interface RadioCriteriaComponentProps {
@@ -19,28 +19,32 @@ export interface RadioCriteriaComponentProps {
 
 export function RadioCriteriaComponent(props: RadioCriteriaComponentProps) {
   const { title, value, handleCriteriaChange, criteriaName, items } = props;
+
+  const stackDirection = useBreakpointValue({ base: "column", md: "row" }) as
+    | "column"
+    | "row"
+    | undefined;
+
   return (
-    <VStack alignItems="flex-start">
+    <VStack alignItems="flex-start" spacing={2}>
       <Box display="flex" alignItems="center" gap="8px" height="32px">
         <Text fontWeight="700">{title}</Text>
         {value !== "" && (
           <CloseButton onClick={() => handleCriteriaChange(criteriaName, "")} />
         )}
       </Box>
-      <HStack height="32px">
-        <RadioGroup
-          value={value}
-          onChange={(next) => handleCriteriaChange(criteriaName, next)}
-        >
-          <Stack direction="row">
-            {items.map((item) => (
-              <Radio key={item.id} value={item.id}>
-                {item.itemContent}
-              </Radio>
-            ))}
-          </Stack>
-        </RadioGroup>
-      </HStack>
+      <RadioGroup
+        value={value}
+        onChange={(next) => handleCriteriaChange(criteriaName, next)}
+      >
+        <Stack direction={stackDirection} spacing={2}>
+          {items.map((item) => (
+            <Radio key={item.id} value={item.id}>
+              {item.itemContent}
+            </Radio>
+          ))}
+        </Stack>
+      </RadioGroup>
     </VStack>
   );
 }

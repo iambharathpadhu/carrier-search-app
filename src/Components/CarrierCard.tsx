@@ -9,9 +9,10 @@ import {
   TagLeftIcon,
   Text,
   VStack,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { StarRating } from "./StarRating";
-import { CheckIcon, LinkIcon } from "@chakra-ui/icons";
+import { CheckIcon, LinkIcon, StarIcon } from "@chakra-ui/icons";
 
 export interface CarrierCardProps {
   name: string;
@@ -35,6 +36,7 @@ export function CarrierCard(props: CarrierCardProps) {
     bestMatch,
     isFullWidth,
   } = props;
+  const displayBestMatch = useBreakpointValue({ base: false, md: true });
   return (
     <Card
       maxW={isFullWidth ? "100%" : "sm"}
@@ -82,12 +84,16 @@ export function CarrierCard(props: CarrierCardProps) {
             <Text display="flex" alignItems="center" gap="4px">
               <StarRating filled={Math.round(rating)} />({rating} stars)
             </Text>
-            {bestMatch && available && (
-              <Tag colorScheme="twitter">
-                <TagLeftIcon boxSize="12px" as={LinkIcon} />
-                <TagLabel>Best Match</TagLabel>
-              </Tag>
-            )}
+            {bestMatch &&
+              available &&
+              (displayBestMatch ? (
+                <Tag colorScheme="twitter">
+                  <TagLeftIcon boxSize="12px" as={LinkIcon} />
+                  <TagLabel>Best Match</TagLabel>
+                </Tag>
+              ) : (
+                <StarIcon />
+              ))}
           </Box>
           <Divider />
         </Stack>

@@ -16,7 +16,7 @@ export function BookingConfirmation(props: BookingConfirmationProps) {
       <Heading color="green.500" mb={4}>
         Success
       </Heading>
-      <Image src={"public/truckImage.jpg"} alt="Truck" boxSize="auto" mb={4} />
+      <Image src={"/truckImage.jpg"} alt="Truck" boxSize="auto" mb={4} />
       <Flex justifyContent="center">
         <Box borderRadius="8px" borderWidth="1px" p={4} m={2}>
           <Heading size="md" mb={2}>

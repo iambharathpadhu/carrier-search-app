@@ -3,11 +3,7 @@ import { useFetch } from "../hooks/useFetch";
 import { CarrierCard } from "./CarrierCard";
 import { Button, Image, Spinner, Tag, Text } from "@chakra-ui/react";
 import { CarrierData, CarriersResponse, Criteria } from "../types";
-import {
-  getBestMatchingCarrier,
-  getFilteredCarriers,
-  getSelectedCriteria,
-} from "../utils";
+import { getFilteredCarriers, getSelectedCriteria } from "../utils";
 
 export interface CarrierSelectionProps {
   criteria: Criteria;
@@ -28,8 +24,6 @@ export function CarrierSelection(props: CarrierSelectionProps) {
   const filteredCarriers = getFilteredCarriers(data.carriers, criteria);
 
   const selectedCriteria = getSelectedCriteria(criteria);
-
-  const bestMatch = getBestMatchingCarrier(filteredCarriers);
 
   const handleCarrierSelect = (name: string) => {
     const selectedCarrier = filteredCarriers.find(
@@ -69,13 +63,13 @@ export function CarrierSelection(props: CarrierSelectionProps) {
             onTimeDelivery={carrier.onTimeDeliveryPercentage * 100}
             isSelected={selectedCarrier.name === carrier.name}
             onCarrierSelect={handleCarrierSelect}
-            bestMatch={bestMatch.name === carrier.name}
+            bestMatch={carrier.isBestMatch}
           />
         ))}
       </SimpleGrid>
       {filteredCarriers.length === 0 && !loading && (
         <Box border="1px solid black" padding={8} borderRadius="8px">
-          <Image src="public/notFound.jpg" />
+          <Image src="/notFound.jpg" />
           <Text>No carriers found for the selected criteria</Text>
         </Box>
       )}
