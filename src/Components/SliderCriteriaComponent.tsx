@@ -1,6 +1,6 @@
 import {
   Box,
-  CloseButton,
+  Button,
   HStack,
   Slider,
   SliderFilledTrack,
@@ -41,7 +41,13 @@ export function SliderCriteriaComponent(props: SliderCriteriaComponentProps) {
           {title}
         </Text>
         {value !== 0 && (
-          <CloseButton onClick={() => handleCriteriaChange(criteriaName, 0)} />
+          <Button
+            variant="link"
+            colorScheme="gray"
+            onClick={() => handleCriteriaChange(criteriaName, 0)}
+          >
+            Clear
+          </Button>
         )}
       </Box>
       <HStack

@@ -4,9 +4,9 @@ import {
   Radio,
   VStack,
   Text,
-  CloseButton,
   Box,
   useBreakpointValue,
+  Button,
 } from "@chakra-ui/react";
 
 export interface RadioCriteriaComponentProps {
@@ -30,7 +30,13 @@ export function RadioCriteriaComponent(props: RadioCriteriaComponentProps) {
       <Box display="flex" alignItems="center" gap="8px" height="32px">
         <Text fontWeight="700">{title}</Text>
         {value !== "" && (
-          <CloseButton onClick={() => handleCriteriaChange(criteriaName, "")} />
+          <Button
+            variant="link"
+            colorScheme="gray"
+            onClick={() => handleCriteriaChange(criteriaName, "")}
+          >
+            Clear
+          </Button>
         )}
       </Box>
       <RadioGroup
