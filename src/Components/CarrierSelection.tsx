@@ -76,9 +76,11 @@ export function CarrierSelection(props: CarrierSelectionProps) {
         ))}
       </SimpleGrid>
       {filteredCarriers.length === 0 && !loading && (
-        <Box border="1px solid black" padding={8} borderRadius="8px">
+        <Box padding={8}>
           <Image src="/notFound.jpg" />
-          <Text>No carriers found for the selected criteria</Text>
+          <Text fontStyle="italic">
+            No carriers found for the selected criteria
+          </Text>
         </Box>
       )}
     </VStack>
