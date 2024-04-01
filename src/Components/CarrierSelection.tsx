@@ -65,6 +65,7 @@ export function CarrierSelection(props: CarrierSelectionProps) {
             <CarrierCard
               key={carrier.name}
               name={carrier.name}
+              cost={carrier.cost}
               rating={carrier.rating}
               available={carrier.availability}
               onTimeDelivery={carrier.onTimeDeliveryPercentage * 100}

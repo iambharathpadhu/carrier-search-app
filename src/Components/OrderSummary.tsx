@@ -25,6 +25,7 @@ export function OrderSummary(
           onCarrierSelect={() => {}}
           isFullWidth
           disableHoverStyle
+          cost={selectedCarrier.cost}
         />
       </Box>
       <Box

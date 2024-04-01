@@ -16,6 +16,7 @@ import { CheckIcon, LinkIcon, StarIcon } from "@chakra-ui/icons";
 
 export interface CarrierCardProps {
   name: string;
+  cost: number;
   rating: number;
   available: boolean;
   bestMatch?: boolean;
@@ -37,6 +38,7 @@ export function CarrierCard(props: CarrierCardProps) {
     bestMatch,
     isFullWidth,
     disableHoverStyle,
+    cost,
   } = props;
   const displayBestMatch = useBreakpointValue({ base: false, md: true });
   return (
@@ -53,11 +55,7 @@ export function CarrierCard(props: CarrierCardProps) {
       width={isFullWidth ? "100%" : "auto"}
       cursor={available ? "pointer" : "not-allowed"}
       _hover={{
-        cursor: disableHoverStyle
-          ? "default"
-          : available
-          ? "pointer"
-          : "not-allowed",
+        cursor: disableHoverStyle ? "default" : "pointer",
       }}
     >
       <CardBody>
@@ -85,6 +83,10 @@ export function CarrierCard(props: CarrierCardProps) {
             <VStack alignItems="center">
               <Text fontWeight="700">On Time Delivery</Text>
               <Text size="md">{onTimeDelivery} %</Text>
+            </VStack>
+            <VStack alignItems="center">
+              <Text fontWeight="700">Cost</Text>
+              <Text size="md">{cost} INR</Text>
             </VStack>
           </Box>
           <Divider />
