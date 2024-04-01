@@ -51,7 +51,7 @@ I chose to split the screen into various components as follows:
 
 The folder structure looks like this:
 
-<img width="1405" alt="Carrier Folders" src="https://github.com/iambharathpadhu/carrier-search-app/assets/folderStructure.png">
+<img width="1405" alt="Carrier Folders" src="https://github.com/iambharathpadhu/carrier-search-app/blob/main/src/assets/folderStructure.png">
 
 
 In addition to the libraries already installed with the scaffolded app, here are some libraries that are being used:
@@ -67,7 +67,7 @@ In addition to the libraries already installed with the scaffolded app, here are
 **Optimisations and other UX notes**
 
 - I ran performance analysis using [lighthouse].
-<img width="1405" alt="Performance" src="https://github.com/iambharathpadhu/carrier-search-app/assets/performance.png">
+<img width="1405" alt="Performance" src="https://github.com/iambharathpadhu/carrier-search-app/blob/main/src/assets/performance.png">
 
 **Deployments**
 
