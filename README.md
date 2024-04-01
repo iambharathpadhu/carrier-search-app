@@ -63,6 +63,7 @@ In addition to the libraries already installed with the scaffolded app, here are
 | [Framer Motion](https://www.framer.com/motion/)                                               | For all animation needs                                                                 |
 | [react-router-dom](https://www.npmjs.com/package/react-router-dom)                           | React Router enables client-side routing for the React app. We use the hooks from this package to navigate and locate the routing state of the application. |
 | [react-hook-form](https://react-hook-form.com/)                           | For using form validation and submission of form.|
+| [react-confetti](https://ulitcos.github.io/react-canvas-confetti/)                           | For rendering confetti on successfully booking the carrier|
 
 **Optimisations and other UX notes**
 
