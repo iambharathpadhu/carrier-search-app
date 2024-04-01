@@ -88,6 +88,7 @@ export function CarrierSearchWizard() {
     const updatedParams = new URLSearchParams(params);
     updatedParams.delete("userData");
     updatedParams.delete("selectedCarrierData");
+    updatedParams.delete("isConfettiSeen");
     Object.keys(criteria).forEach((key) => {
       updatedParams.delete(key);
     });
