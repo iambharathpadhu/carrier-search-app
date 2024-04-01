@@ -19,12 +19,15 @@ To run the project locally, follow these steps:
    git clone https://github.com/iambharathpadhu/carrier-search-app.git
 
 2. Navigate to the repository
+   ```sh
    cd carrier-search-app
 
 3.Install dependencies:
+   ```sh
   npm install
 
 4.Run the development server:
+   ```sh
   npm run dev
 
 ## Usage
