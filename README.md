@@ -47,7 +47,7 @@ npm create vite@latest
 
 I chose to split the screen into various components as follows:
 
-<img width="1405" alt="Carrier Components" src="https://github.com/iambharathpadhu/carrier-search-app/assets/componentStructure.png">
+<img width="1405" alt="Carrier Components" src="https://github.com/iambharathpadhu/carrier-search-app/blob/main/src/assets/componentStructure.png">
 
 The folder structure looks like this:
 
