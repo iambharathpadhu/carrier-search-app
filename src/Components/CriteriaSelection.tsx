@@ -1,4 +1,4 @@
-import { Box, Button, Heading, VStack, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, VStack, Tag } from "@chakra-ui/react";
 import { RadioCriteriaComponent } from "./RadioCriteriaComponent";
 import { Criteria } from "../types";
 import {
@@ -23,9 +23,20 @@ export function CriteriaSelection(props: CriteriaSelectionProps) {
       <Heading as="h4" display="flex" marginBottom="24px">
         Select a Criteria
       </Heading>
-      <Text textAlign="left" fontWeight="800">
-        Select one or more criteria to filter the Carriers
-      </Text>
+      <Box alignSelf="flex-start" display="flex">
+        {!hasCriteriaSelected && (
+          <Tag
+            alignSelf="flex-start"
+            textAlign="left"
+            fontWeight="700"
+            padding={2}
+            colorScheme="red"
+          >
+            Please select one or more criteria options and click next to
+            continue!
+          </Tag>
+        )}
+      </Box>
       <VStack alignItems="flex-start" gap="16px">
         <RadioCriteriaComponent
           items={ratingItems}

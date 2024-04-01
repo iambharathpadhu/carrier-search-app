@@ -3,6 +3,7 @@ import {
   FormLabel,
   Heading,
   Input,
+  Tag,
   VStack,
 } from "@chakra-ui/react";
 import { Controller, useForm } from "react-hook-form";
@@ -28,6 +29,17 @@ export function DetailsForm(
   return (
     <VStack width="90%">
       <Heading alignSelf="flex-start">Shipping Information</Heading>
+      {!(isDirty && isValid) && (
+        <Tag
+          alignSelf="flex-start"
+          textAlign="left"
+          fontWeight="700"
+          padding={2}
+          colorScheme="red"
+        >
+          Please fill the form and click Complete to continue!
+        </Tag>
+      )}
       <FormControl display="flex" flexDirection="column" gap="8px">
         <FormLabel>First name</FormLabel>
         <Controller

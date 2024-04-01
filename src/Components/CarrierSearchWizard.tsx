@@ -95,6 +95,18 @@ export function CarrierSearchWizard() {
     setParams(updatedParams);
   };
 
+  useEffect(() => {
+    //To reset the form data and carrier data when user goes back to the first step
+    if (activeStep === 0) {
+      setFormDataValid(false);
+      if (selectedCarrierData) {
+        const updatedParams = new URLSearchParams(params);
+        updatedParams.delete("selectedCarrierData");
+        setParams(updatedParams);
+      }
+    }
+  }, [activeStep, params, selectedCarrierData, setParams]);
+
   return (
     <VStack
       justifyContent="space-between"

@@ -41,6 +41,18 @@ export function CarrierSelection(props: CarrierSelectionProps) {
       <Heading alignSelf="flex-start" as="h4">
         Selected Criteria
       </Heading>
+      {!selectedCarrier.name && (
+        <Tag
+          alignSelf="flex-start"
+          textAlign="left"
+          fontWeight="700"
+          padding={2}
+          colorScheme="red"
+        >
+          Please select a Carrier by clicking on the card and click next to
+          continue!
+        </Tag>
+      )}
       <Box alignSelf="flex-start">
         <Box display="flex" flexWrap="wrap" gap="4px">
           {selectedCriteria.map((criteria) => {

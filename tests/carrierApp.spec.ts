@@ -75,7 +75,8 @@ test.describe("Carrier App", () => {
       await page.getByRole("button", { name: "Next" }).click();
       await expect(page.getByText("Rating: 4 stars and up")).toBeVisible();
       await page.getByRole("button", { name: "Modify Criteria" }).click();
-      await expect(page.getByText("Select one or more criteria")).toBeVisible();
+      await page.getByRole("button", { name: "Clear", exact: true }).click();
+      await expect(page.getByText("Please select one or more")).toBeVisible();
     });
   });
 
