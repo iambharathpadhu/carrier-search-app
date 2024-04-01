@@ -1,30 +1,51 @@
-# React + TypeScript + Vite
+# Carrier Search App for Freight Brokers
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project aims to provide a solution for freight brokers to select criteria for the best potential carrier and to select and book them for their transportation requirements. It includes a multi-step wizard that guides the user with a cool user experience, allowing users to filter carriers based on criteria and select the best potential match based on their requirements.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Multi-step wizard for selecting criteria and carriers
+- Filter carriers based on criteria such as rating, price range, special requirements, and on-time delivery percentage
+- Cool user experience with animations and smooth transitions
+- Utilizes URL state for preserving values even after refresh
+- Built with Vite for fast bundling using Rollup, React Router Dom for navigation, Chakra UI for UI components, and Framer Motion for animations
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To run the project locally, follow these steps:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/iambharathpadhu/carrier-search-app.git
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+2. Navigate to the repository
+   cd carrier-search-app
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3.Install dependencies:
+  npm install
+
+4.Run the development server:
+  npm run dev
+
+## Usage
+
+1. Select criteria for filtering carriers.
+2. Browse through the list of carriers displayed.
+3. Click on a carrier to view details and select it for booking.
+
+## Packages
+
+
+Why I Chose the Following Technologies:
+
+URL State: I opted for URL state to ensure that user data remains intact even after a page refresh, enhancing the user experience by providing continuity and reducing frustration caused by lost data.
+
+Vite: My choice of Vite as the bundling tool was driven by its utilization of Rollup for production builds and its remarkable speed, which significantly contributes to faster development cycles and quicker feedback loops.
+
+Chakra UI: I decided to leverage Chakra UI for its extensive collection of accessible and highly customizable UI components. Its simplicity and flexibility empowered me to create visually stunning interfaces effortlessly, saving valuable development time.
+
+Framer Motion: Incorporating Framer Motion into the project allowed me to infuse subtle yet impactful animations, such as exit and entry animations. These animations play a crucial role in enhancing the overall user experience, making interactions more engaging and delightful.
+
+
+
+
