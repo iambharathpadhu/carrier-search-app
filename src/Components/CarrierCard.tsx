@@ -22,6 +22,7 @@ export interface CarrierCardProps {
   isSelected?: boolean;
   isFullWidth?: boolean;
   onTimeDelivery: number;
+  disableHoverStyle?: boolean;
   onCarrierSelect: (carrierData: string) => void;
 }
 
@@ -35,6 +36,7 @@ export function CarrierCard(props: CarrierCardProps) {
     isSelected,
     bestMatch,
     isFullWidth,
+    disableHoverStyle,
   } = props;
   const displayBestMatch = useBreakpointValue({ base: false, md: true });
   return (
@@ -50,6 +52,13 @@ export function CarrierCard(props: CarrierCardProps) {
       }}
       width={isFullWidth ? "100%" : "auto"}
       cursor={available ? "pointer" : "not-allowed"}
+      _hover={{
+        cursor: disableHoverStyle
+          ? "default"
+          : available
+          ? "pointer"
+          : "not-allowed",
+      }}
     >
       <CardBody>
         <Stack spacing="2" alignItems="flex-start">

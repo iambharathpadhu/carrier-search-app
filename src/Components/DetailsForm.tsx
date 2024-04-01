@@ -34,7 +34,7 @@ export function DetailsForm(
           name="firstName"
           control={control}
           rules={{ required: "First name is required" }}
-          render={({ field }) => <Input {...field} placeholder="First name" />}
+          render={({ field }) => <Input {...field} />}
         />
         {errors.firstName && typeof errors.firstName.message === "string" && (
           <Text textAlign="left" p={2} color="red">
@@ -46,7 +46,7 @@ export function DetailsForm(
           name="lastName"
           control={control}
           rules={{ required: "Last name is required" }}
-          render={({ field }) => <Input {...field} placeholder="Last name" />}
+          render={({ field }) => <Input {...field} />}
         />
         {errors.lastName && typeof errors.lastName.message === "string" && (
           <Text textAlign="left" p={2} color="red">
@@ -58,7 +58,7 @@ export function DetailsForm(
           name="address"
           control={control}
           rules={{ required: "Address is required" }}
-          render={({ field }) => <Input {...field} placeholder="Address" />}
+          render={({ field }) => <Input {...field} />}
         />
         {errors.address && typeof errors.address.message === "string" && (
           <Text textAlign="left" p={2} color="red">
@@ -72,7 +72,7 @@ export function DetailsForm(
               name="city"
               control={control}
               rules={{ required: "City is required" }}
-              render={({ field }) => <Input {...field} placeholder="City" />}
+              render={({ field }) => <Input {...field} />}
             />
             {errors.city && typeof errors.city.message === "string" && (
               <Text textAlign="left" p={2} color="red">
@@ -92,7 +92,7 @@ export function DetailsForm(
                   message: "Invalid Zip-code, enter 6 digits",
                 },
               }}
-              render={({ field }) => <Input {...field} placeholder="Zipcode" />}
+              render={({ field }) => <Input {...field} />}
             />
             {errors.zipCode && typeof errors.zipCode.message === "string" && (
               <Text textAlign="left" p={2} color="red">
@@ -106,7 +106,7 @@ export function DetailsForm(
           name="email"
           control={control}
           rules={{ required: "Email is required" }}
-          render={({ field }) => <Input {...field} placeholder="Email" />}
+          render={({ field }) => <Input {...field} />}
         />
         {errors.email && typeof errors.email.message === "string" && (
           <Text textAlign="left" p={2} color="red">
@@ -124,7 +124,7 @@ export function DetailsForm(
               message: "Invalid Card Number, enter 16 digits",
             },
           }}
-          render={({ field }) => <Input {...field} placeholder="Card-Number" />}
+          render={({ field }) => <Input {...field} />}
         />
         {errors.cardNumber && typeof errors.cardNumber.message === "string" && (
           <Text textAlign="left" p={2} color="red">
@@ -135,8 +135,18 @@ export function DetailsForm(
         <Controller
           name="expirationDate"
           control={control}
-          rules={{ required: "Expiry Date is required" }}
-          render={({ field }) => <Input {...field} placeholder="Expiry Date" />}
+          rules={{
+            required: "Expiry Date is required",
+          }}
+          render={({ field }) => (
+            <Input
+              {...field}
+              type="month"
+              min="1000-01"
+              max="9999-12"
+              required
+            />
+          )}
         />
         {errors.expirationDate &&
           typeof errors.expirationDate.message === "string" && (

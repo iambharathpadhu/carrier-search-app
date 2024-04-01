@@ -30,6 +30,8 @@ export function NavigationButtons(props: NavigationButtonsProps) {
         isDisabled={isNextDisabled}
         onClick={handleNextButtonClick}
         colorScheme={activeStep === stepsLength - 1 ? "blue" : "gray"}
+        background={isNextDisabled ? "gray.400" : "teal.500"}
+        _hover={{ background: isNextDisabled ? "gray.400" : "teal.600" }}
       >
         {activeStep === stepsLength - 1 ? "Complete" : "Next"}
       </Button>
