@@ -31,30 +31,28 @@ To run the project locally, follow these steps:
 4. **Run the development server:**
    ```sh
    npm run dev
+
+5. **To run the tests:**
+   ```sh
+   npm run test
    
 
 ## Architecture
 
-I chose to go with `react` as the framework of choice. The react code base has been scaffolded with vite and pnpm using:
+I chose to go with `react` as the framework of choice. The react code base has been scaffolded with vite and npm using:
 
 ```
 npm create vite@latest
 ```
 
-The app will have a single page with `/queries` route with `queryId` as an optional parameter.
-
 I chose to split the screen into various components as follows:
 
-<img width="1405" alt="Carrier Components" src="https://github.com/rootsrk/atlan-take-home-assignment/assets/98030411/a07354c5-dd08-4862-b6ba-80fce906e548">
+<img width="1405" alt="Carrier Components" src="https://github.com/iambharathpadhu/carrier-search-app/assets/componentStructure.png">
 
 The folder structure looks like this:
 
-<img width="238" alt="Screenshot 2023-09-25 at 7 29 49 PM" src="https://github.com/rootsrk/atlan-take-home-assignment/assets/98030411/fea47758-2475-4541-a736-b3538b676146">
+<img width="1405" alt="Carrier Folders" src="https://github.com/iambharathpadhu/carrier-search-app/assets/folderStructure.png">
 
-
-```
-💡 All data is mocked on the front end. This app has no network layer.
-```
 
 In addition to the libraries already installed with the scaffolded app, here are some libraries that are being used:
 | Library name                                  | Usage                                                                                   |
@@ -68,8 +66,8 @@ In addition to the libraries already installed with the scaffolded app, here are
 
 **Optimisations and other UX notes**
 
-- I ran performance analysis using [webpagetest](https://www.webpagetest.org/result/230925_BiDcMN_CN4/).
-<img width="1440" alt="Screenshot 2023-09-25 at 9 47 57 PM" src="https://github.com/rootsrk/atlan-take-home-assignment/assets/98030411/83f51d1c-f25c-4e42-bf64-bd889b5c008e">
+- I ran performance analysis using [lighthouse].
+<img width="1405" alt="Performance" src="https://github.com/iambharathpadhu/carrier-search-app/assets/performance.png">
 
 **Deployments**
 
