@@ -66,8 +66,8 @@ In addition to the libraries already installed with the scaffolded app, here are
 
 **Optimisations and other UX notes**
 
-- I ran performance analysis using [lighthouse].
-<img width="1405" alt="Performance" src="https://github.com/iambharathpadhu/carrier-search-app/blob/main/src/assets/pagespeed.png">
+- I ran performance analysis using [pagespeed].(https://pagespeed.web.dev/analysis/https-carrier-search-app-vercel-app/7vwu3z1842?form_factor=desktop)
+<img width="1405" alt="Performance" src="https://github.com/iambharathpadhu/carrier-search-app/blob/main/src/assets/performanceReport.png">
 
 **Deployments**
 
