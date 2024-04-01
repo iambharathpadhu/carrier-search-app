@@ -67,7 +67,7 @@ In addition to the libraries already installed with the scaffolded app, here are
 **Optimisations and other UX notes**
 
 - I ran performance analysis using [lighthouse].
-<img width="1405" alt="Performance" src="https://github.com/iambharathpadhu/carrier-search-app/blob/main/src/assets/performance.png">
+<img width="1405" alt="Performance" src="https://github.com/iambharathpadhu/carrier-search-app/blob/main/src/assets/pagespeed.png">
 
 **Deployments**
 
