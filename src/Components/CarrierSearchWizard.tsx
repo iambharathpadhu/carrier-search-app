@@ -96,7 +96,15 @@ export function CarrierSearchWizard() {
   };
 
   return (
-    <VStack justifyContent="space-between" gap="20px" margin="0 auto">
+    <VStack
+      justifyContent="space-between"
+      gap="20px"
+      margin="0 auto"
+      maxWidth="100dw"
+      width="100%"
+      padding="20px"
+      textAlign="center"
+    >
       <CarrierStepper steps={steps} activeStep={activeStep} />
       <WizardContent
         criteria={criteria}
