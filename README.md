@@ -62,7 +62,7 @@ In addition to the libraries already installed with the scaffolded app, here are
 | [Chakra UI](https://chakra-ui.com/)       | An open-source component library optimized for fast development, easy maintenance, and accessibility. Just import and go—no configuration required. |
 | [Framer Motion](https://www.framer.com/motion/)                                               | For all animation needs                                                                 |
 | [react-router-dom](https://www.npmjs.com/package/react-router-dom)                           | React Router enables client-side routing for the React app. We use the hooks from this package to navigate and locate the routing state of the application. |
-| [formatjs]([https://www.npmjs.com/package/react-router-dom](https://formatjs.io/))                           | For supporting i18n for the web app on the client with some eslint plugin packages for detecting hard-coded text. |
+| [react-hook-form](https://react-hook-form.com/)                           | For using form validation and submission of form.|
 
 **Optimisations and other UX notes**
 
