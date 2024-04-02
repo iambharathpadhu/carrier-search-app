@@ -49,9 +49,8 @@ I chose to split the screen into various components as follows:
 
 <img width="1405" alt="Carrier Components" src="https://github.com/iambharathpadhu/carrier-search-app/blob/main/src/assets/componentStructure.png">
 
-[!NOTE]  
-
-The last screen adds a fake error scenario based on a random number generator when we input the shipping details and click Complete. Therefore, please click "complete" once again if an error message appears. This should hopefully take you to the success screen.
+> [!NOTE]  
+> The last screen adds a fake error scenario based on a random number generator when we input the shipping details and click Complete. Therefore, please click "complete" once again if an error message appears. This should hopefully take you to the success screen
 
 The folder structure looks like this:
 
