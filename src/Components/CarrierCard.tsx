@@ -92,7 +92,7 @@ export function CarrierCard(props: CarrierCardProps) {
           <Divider />
           <Text fontWeight="700">Rating</Text>
           <Box display="flex" justifyContent="space-between" width="100%">
-            <Text display="flex" alignItems="center" gap="4px">
+            <Text alignItems="center" gap="4px">
               <StarRating filled={Math.round(rating)} />({rating} stars)
             </Text>
             {bestMatch &&
