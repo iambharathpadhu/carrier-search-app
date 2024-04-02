@@ -32,7 +32,8 @@ export function RadioCriteriaComponent(props: RadioCriteriaComponentProps) {
         {value !== "" && (
           <Button
             variant="link"
-            colorScheme="gray"
+            colorScheme="teal"
+            fontWeight="700"
             onClick={() => handleCriteriaChange(criteriaName, "")}
           >
             Clear

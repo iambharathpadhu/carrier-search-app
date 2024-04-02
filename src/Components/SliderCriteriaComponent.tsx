@@ -43,7 +43,8 @@ export function SliderCriteriaComponent(props: SliderCriteriaComponentProps) {
         {value !== 0 && (
           <Button
             variant="link"
-            colorScheme="gray"
+            colorScheme="teal"
+            fontWeight="700"
             onClick={() => handleCriteriaChange(criteriaName, 0)}
           >
             Clear
